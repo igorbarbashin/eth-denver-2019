@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Building from './Building';
 
 const Rhombus = styled.button`
-  /* skewY */
   width: 100px;
   height: 100px;
   background: #351788;
@@ -11,7 +10,8 @@ const Rhombus = styled.button`
   outline: none;
 
   &:active {
-    outline: none;
+    outline: none !important;
+    border: none !important;
   }
 
   &:hover {
@@ -31,7 +31,7 @@ const Tile = ({ id }) => (
   <Rhombus id={id}>
     <Unrotator>
       <Unsquisher>
-        <Building type="res" />
+        <Building />
       </Unsquisher>
     </Unrotator>
   </Rhombus>

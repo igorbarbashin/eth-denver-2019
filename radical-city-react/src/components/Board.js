@@ -23,7 +23,7 @@ const Board = () => (
   <Squisher>
     <Rotator>
       {tiles.map((tile, index) => (
-        <Tile id={index} />
+        <Tile key={index} id={index} />
       ))}
     </Rotator>
   </Squisher>

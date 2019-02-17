@@ -109,10 +109,14 @@ class Board extends Component {
     );
   }
   render() {
+    const { grid } = this.state;
     // console.log('re render Board');
     return (
       <div className="grid-container">
         {this.createGrid()}
+1
+        {Object.values((gridItem) => <Tile {...gridItem} />)}
+        2
         <JoinMatch
           showModal={this.state.showModal}
           handleClose={this.handleClose}

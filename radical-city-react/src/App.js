@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {getWeb3} from './utils/web3';
 // import Ethereum from './Ethereum';
 import Board from './Board';
+import NewBoard from './components/Board';
 import assistInstance from './utils/blocknative';
 
 class App extends Component {
@@ -16,22 +17,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (typeof window !== 'undefined') {
-      assistInstance
-        .onboard()
-        .then(async success => {
-          this.web3 = await getWeb3();
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    }
+    // if (typeof window !== 'undefined') {
+    //   assistInstance
+    //     .onboard()
+    //     .then(async success => {
+    //       this.web3 = await getWeb3();
+    //     })
+    //     .catch(function(error) {
+    //       console.log(error);
+    //     });
+    // }
   }
   render() {
     return (
       <div>
         <h1> Radical Cities </h1>
-        <Board />
+        <NewBoard />
       </div>
     );
   }

@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Tile from './Tile';
 import JoinMatch from './modals/JoinMatch';
-import {createGridModel} from './utils/grid';
-import {getWeb3, getGameContractInstance} from './utils/web3';
-
-import './board.css';
+import { createGridModel } from './utils/grid';
+import { getWeb3, getGameContractInstance } from './utils/web3';
 
 class Board extends Component {
   constructor(props) {
@@ -16,7 +14,7 @@ class Board extends Component {
       grid: createGridModel(4),
       selectedTile: null,
       // helps to position theselected tile
-      lastClickPos: null,
+      lastClickPos: null
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -34,11 +32,11 @@ class Board extends Component {
   }
   handleOpen() {
     console.log('opening...');
-    this.setState({showModal: true});
+    this.setState({ showModal: true });
   }
   handleClose() {
     console.log('closing...');
-    this.setState({showModal: false});
+    this.setState({ showModal: false });
   }
   createGrid() {
     const table = [];
@@ -57,9 +55,10 @@ class Board extends Component {
           className="square"
           key={`cell${x}-${y}`}
           web3={this.props.web3}
-          onClick={ev => this.tileWasClicked(tile, ev)}>
+          onClick={ev => this.tileWasClicked(tile, ev)}
+        >
           <div className={`building zone-${tile.zone}`}>{tile.price}</div>
-        </div>,
+        </div>
       );
     }
     return (
@@ -80,8 +79,8 @@ class Board extends Component {
       selectedTile: tile,
       lastClickPos: {
         x: ev.screenX,
-        y: ev.screenY,
-      },
+        y: ev.screenY
+      }
     });
   }
   tileDetails(tile) {
@@ -89,12 +88,12 @@ class Board extends Component {
     const lastClick = this.state.lastClickPos || {};
     const pos = {
       left: `${lastClick.x - 100}px`,
-      top: `${lastClick.y - 220}px`,
+      top: `${lastClick.y - 220}px`
     };
     function close() {
       this.setState({
         selectedTile: null,
-        lastClickPos: null,
+        lastClickPos: null
       });
     }
     return (
@@ -113,9 +112,10 @@ class Board extends Component {
     // console.log('re render Board');
     return (
       <div className="grid-container">
-        {this.createGrid()}
-1
-        {Object.values((gridItem) => <Tile {...gridItem} />)}
+        {this.createGrid()}1
+        {Object.values(gridItem => (
+          <Tile {...gridItem} />
+        ))}
         2
         <JoinMatch
           showModal={this.state.showModal}

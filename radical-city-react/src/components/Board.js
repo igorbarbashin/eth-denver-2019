@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Tile from './Tile';
 
-const tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-
 const Squisher = styled.div`
   transform: scaleY(0.5);
   margin: auto;
@@ -19,11 +17,11 @@ const Rotator = styled.div`
   height: 400px;
 `;
 
-const Board = () => (
+const Board = ({ tiles }) => (
   <Squisher>
     <Rotator>
       {tiles.map((tile, index) => (
-        <Tile key={index} id={index} />
+        <Tile tile={tile} key={index} id={index} />
       ))}
     </Rotator>
   </Squisher>

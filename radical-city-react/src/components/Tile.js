@@ -8,6 +8,7 @@ const Rhombus = styled.button`
   background: #351788;
   border: 0.5px solid #4c27a4;
   outline: none;
+  cursor: pointer;
 
   &:active {
     outline: none !important;
@@ -20,6 +21,7 @@ const Rhombus = styled.button`
 `;
 
 const Unrotator = styled.div`
+  pointer-events: none;
   transform: rotateZ(45deg);
 `;
 
@@ -27,11 +29,11 @@ const Unsquisher = styled.div`
   transform: scaleY(2);
 `;
 
-const Tile = ({ id }) => (
+const Tile = ({ id, tile }) => (
   <Rhombus id={id}>
     <Unrotator>
       <Unsquisher>
-        <Building />
+        <Building type={tile.zone} />
       </Unsquisher>
     </Unrotator>
   </Rhombus>
